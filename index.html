@@ -93,28 +93,31 @@
                             <div class="col-md-5">
                                 <label for="estado" class="form-label">Estado</label>
                                 <select class="form-select" id="estado" required>
-                                    <option value="">Escolha...</option>
+                                    <option value="">Escolha</option>
                                     <option value="MA">Maranhão</option>
                                     <option value="SP">São Paulo</option>
                                 </select>
+                                
                             </div>
-
+                                
                             <div class="col-md-4">
                                 <label for="cidade" class="form-label">Cidade</label>
                                 <select class="form-select" id="cidade" required>
-                                    <option value="">Escolha...</option>
+                                    <option value="">Escolha</option>
                                     <option value="São Luís">São Luís</option>
                                     <option value="Pinheiro">Pinheiro</option>
                                     <option value="Balsas">Balsas</option>
                                 </select>
+                                <small id="msgCidade"></small>
                             </div>
+                            
                             <small id="validarEstado"></small>
                             <div class="col-md-3">
                                 <label for="cep" class="form-label">Cep</label>
                                 <input type="text" class="form-control" id="cep" placeholder="000000-000" required>
                             </div>
                         </section>
-
+                        <small id="validarCep"></small>
                         <hr class="my-4">
                     
                         <!-- CAMPO DE CHECKBOX: MESMO ENDEREÇO -->

@@ -68,7 +68,7 @@ endereco.addEventListener('blur', ()=>{
         alert("Por favor, informe seu endereço!")
     }
     else{
-        alert("Obrigado por informar seu email!")
+        alert("Obrigado por informar seu endereço!")
     }
 
 
@@ -77,5 +77,114 @@ endereco.addEventListener('blur', ()=>{
 // VALIDAR ESTADO
 
 var estado = document.querySelector("#estado")
+var msgEstado = document.querySelector("#validarEstado")
+estado.addEventListener("click", ()=>{
+    if(estado.value == ""){
+        msgEstado.textContent = "Escolha um Estado"
+        msgEstado.classList.remove("text-success")
+        
+        cidade.classList.add("border", "border-danger")
+    }
+    else{
+        msgEstado.textContent = "Campo Selecionado!"
+        msgEstado.classList.remove("text-danger")
+        estado.classList.remove("border-danger")
+        msgEstado.classList.add("text-success")
+        estado.classList.add("border", "border-success")
+    }
 
+})
+
+// VALIDAR CIDADE
+var cidade = document.querySelector("#cidade")
+var msgCidade = document.querySelector("#msgCidade")
+cidade.addEventListener("click", ()=>{
+    if(cidade.value == ""){
+        msgCidade.textContent = "Escolha uma Cidade"
+        cidade.classList.remove("text-success")
+        cidade.classList.add("border", "border-danger")
+    }
+    else{
+        msgCidade.textContent = "Campo Selecionado!"
+        cidade.classList.add("border", "border-success")
+        msgCidade.classList.remove("text-danger")
+        cidade.classList.remove("border-danger")
+        msgCidade.classList.add("text-success")
+    }
+})
+// VALIDAR CEP 
+var cep = document.querySelector("#cep")
+var validarCep = document.querySelector("#validarCep")
+cep.addEventListener("click", ()=>{
+    if(cep.value == ""){
+        validarCep.textContent = "Escolha o CEP"
+        cep.classList.remove("text-success")
+        cep.classList.add("border", "border-danger")
+    }
+    else{
+        validarCep.textContent = "Campo Selecionado"
+        cep.classList.add("border", "border-success")
+        validarCep.classList.remove("text-danger")
+        cep.classList.remove("border-danger")
+        validarCep.classList.add("text-success")     
+    }
+})
+
+
+
+
+
+
+
+//CAMPO CHECK BOX DE SALVAR ENDEREÇO
+var confirmaEndereco = document.querySelector("#confirmaEndereco")
+
+confirmaEndereco.addEventListener('change', ()=>{
+    if(confirmaEndereco.value){
+        window.confirm("Está certo disso?")
+    }
+    
+})
+
+// VALIDAR CAMPO DE "SALVAR ESTAS INFORMAÇÕES"
+
+var salvarInfo = document.querySelector("#salvarInfo")
+
+salvarInfo.addEventListener('change', ()=>{
+    if(salvarInfo.value){
+        alert("Suas informações foram salvas com sucesso!")
+    }
+    
+})
+//CAMPO DE FORMA DE PAGAMENTO E SOMENTE LEITURA
+
+var radio = document.querySelectorAll("input[name=pagamento]")
+var bntVerificar = document.querySelector("#verificarPagamento")
+var msgPagamento = document.querySelector("#tipoPagamento")
+var cartao = document.querySelector("#cartao")
+cartao.classList.add("d-none")
+bntVerificar.addEventListener("click", (evento)=>{
+    evento.preventDefault()
+    var cont = 0
+    for(elementos of pagamento){
+    if(elementos.checked){
+     msgPagamento.value = elemento.value
+    }
+    else{
+        cont++
+    }
+    }
+    if(cont == 5){
+        alert("É obrigatório escolher a forma de pagamento!")
+    }
+    if(msgPagamento.value == "Cartão de Crédito" || msgPagamento.value == "Cartão de Débito"){
+        cartao.classList.remove("d-none")
+        cartao.classList.add("d-block")
+    }
+    else{
+        cartao.classList.remove("d-block")
+        cartao.classList.add("d-none")
+    }
+    
+})
 
